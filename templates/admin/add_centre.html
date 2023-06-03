@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Vaccination Centre</title>
+</head>
+<body>
+    <h1>Add Vaccination Centre</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="/admin/centre/add">
+        <label for="name">Centre Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="working_hours">Working Hours:</label>
+        <input type="text" id="working_hours" name="working_hours" required><br>
+        <input type="submit" value="Add Centre">
+    </form>
+</body>
+</html>

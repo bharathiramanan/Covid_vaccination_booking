@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Vaccination Centres</title>
+</head>
+<body>
+    <h1>Search Vaccination Centres</h1>
+    <h2>Booked Slots:</h2>
+    <ul>
+        {% for slot in booked_slots %}
+            <li>{{ slot }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Available Vaccination Centres:</h2>
+    <ul>
+        {% for centre in centres %}
+            <li>
+                <strong>{{ centre.name }}</strong><br>
+                Working Hours: {{ centre.working_hours }}<br>
+                {% if user %}
+                    {% if slot_available(centre.id, user.id) %}
+                        <form method="POST" action="/apply/{{ centre.id }}">
+                            <input type="submit" value="Apply">
+                        </form>
+                    {% else %}
+                        Slot not available
+                    {% endif %}
+                {% else %}
+                    Please log in to check slot availability.
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <p><a href="/logout">Logout</a></p>
+</body>
+</html>

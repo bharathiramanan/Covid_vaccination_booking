@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dosage Details</title>
+</head>
+<body>
+    <h1>Dosage Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Vaccination Centre</th>
+                <th>Number of Dosages</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dosage in dosage_details %}
+                <tr>
+                    <td>{{ dosage[0] }}</td> <!-- Displaying the username -->
+                    <td>{{ dosage[1] }}</td> <!-- Vaccination Centre name -->
+                    <td>{{ dosage[2] }}</td> <!-- Number of Dosages -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

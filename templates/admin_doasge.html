@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Dosage Details</title>
+</head>
+<body>
+    <h1>Admin - Dosage Details</h1>
+    <ul>
+        {% for centre, count in dosage %}
+            <li>{{ centre }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+    <p><a href="/admin/centres">Back to Centres</a></p>
+    <p><a href="/logout">Logout</a></p>
+</body>
+</html>

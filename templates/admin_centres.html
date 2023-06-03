@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Vaccination Centres</title>
+</head>
+<body>
+    <h1>Admin - Vaccination Centres</h1>
+    <form method="POST" action="/admin/centres">
+        <label for="name">Centre Name:</label>
+        <input type="text" name="name" required><br><br>
+        <label for="working_hours">Working Hours:</label>
+        <input type="text" name="working_hours" required><br><br>
+        <input type="submit" value="Add Centre">
+    </form>
+    <ul>
+        {% for centre in centres %}
+            <li>
+                <strong>{{ centre.name }}</strong><br>
+                Working Hours: {{ centre.working_hours }}<br>
+                <a href="/admin/remove/{{ centre.id }}">Remove Centre</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <p><a href="/admin/dosage">Dosage Details</a></p>
+    <p><a href="/logout">Logout</a></p>
+</body>
+</html>

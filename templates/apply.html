@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apply for Vaccination Slot</title>
+</head>
+<body>
+    <h1>Apply for Vaccination Slot</h1>
+    <p>Vaccination Centre: {{ centre.name }}</p>
+    <p>Working Hours: {{ centre.working_hours }}</p>
+    {% if user and user.vaccination_slots.count() < 1 %}
+        <form method="POST" action="/apply/{{ centre.id }}">
+            <input type="submit" value="Apply">
+        </form>
+    {% else %}
+        <p>You have already booked a slot.</p>
+        <a href="/search">Back to Search</a>
+    {% endif %}
+    <p><a href="/logout">Logout</a></p>
+</body>
+</html>

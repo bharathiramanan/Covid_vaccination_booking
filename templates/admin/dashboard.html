@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h3>Vaccination Centres</h3>
+    <ul>
+        {% for centre in centres %}
+            <li>{{ centre.name }} - {{ centre.working_hours }} (<a href="/admin/centre/remove/{{ centre.id }}" onclick="return confirm('Are you sure you want to remove this centre?')">Remove</a>)</li>
+        {% endfor %}
+    </ul>
+    <h3>Dosage Details</h3>
+    <p><a href="/admin/dosage">View Dosage Details</a></p>
+    <h3>Add Vaccination Centre</h3>
+    <p><a href="/admin/centre/add">Add New Centre</a></p>
+    
+    <form action="/admin/logout" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</body>
+</html>
